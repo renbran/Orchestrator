@@ -74,7 +74,7 @@ def orchestrate_query(user_query):
             if tool == "SerpAPI": emoji = "🔍"
             if tool == "Supabase": emoji = "🗄️"
             if tool == "Property Finder": emoji = "🏠"
-            if tool == "Prosearch": emoji = "🏢"
+            if tool == "Propsearch": emoji = "🏢"
             if tool == "Bayut": emoji = "🏡"
             aggregated_data += f"{emoji} {tool}: {tool_data}\n\n"
         except Exception as e:
