@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, Request
 from services.supabase_service import query_supabase
 from services.sheets_service import query_google_sheets
@@ -21,26 +20,22 @@ async def query(request: Request):
     if "calendar" in user_query.lower():
         selected_tools.append("Google Calendar")
         calendar_data = query_google_calendar(user_query)
-        aggregated_data += f"📅 Calendar:
-{calendar_data}\n\n"
+        aggregated_data += f"📅 Calendar: {calendar_data}\n\n"
 
     if "sheet" in user_query.lower() or "excel" in user_query.lower():
         selected_tools.append("Google Sheets")
         sheets_data = query_google_sheets(user_query)
-        aggregated_data += f"📊 Sheets:
-{sheets_data}\n\n"
+        aggregated_data += f"📊 Sheets: {sheets_data}\n\n"
 
     if "search" in user_query.lower() or "google" in user_query.lower():
         selected_tools.append("SerpAPI")
         serp_data = query_serpapi(user_query)
-        aggregated_data += f"🔍 Search:
-{serp_data}\n\n"
+        aggregated_data += f"🔍 Search: {serp_data}\n\n"
 
     if "database" in user_query.lower() or "supabase" in user_query.lower():
         selected_tools.append("Supabase")
         supabase_data = query_supabase(user_query)
-        aggregated_data += f"🗄️ Supabase:
-{supabase_data}\n\n"
+        aggregated_data += f"🗄️ Supabase: {supabase_data}\n\n"
 
     # Fallback if no tool matched
     if not aggregated_data:
