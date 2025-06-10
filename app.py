@@ -4,8 +4,12 @@ from services.sheets_service import query_google_sheets
 from services.calendar_service import query_google_calendar
 from services.serpapi_service import query_serpapi
 from utils import format_response
+from services.knowledge_base_service import router as knowledge_router
 
 app = FastAPI()
+
+# Include the knowledge base router
+app.include_router(knowledge_router)
 
 @app.post("/query")
 async def query(request: Request):
