@@ -1,2 +1,8 @@
 fastapi
 uvicorn
+chromadb
+openai
+requests
+beautifulsoup4
+python-multipart
+PyPDF2
